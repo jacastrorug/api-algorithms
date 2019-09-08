@@ -1,7 +1,7 @@
 package com.api.algorithms.utils.graph;
 
-import com.api.algorithms.utils.models.Edge;
-import com.api.algorithms.utils.models.Node;
+import com.api.algorithms.dto.Edge;
+import com.api.algorithms.dto.Node;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -54,7 +54,7 @@ public class Graph {
         ArrayList<ArrayList<double[]>> adjacentList = new ArrayList<>(nodes.length);
 
         for (int i = 0; i < nodes.length; i++) {
-            adjacentList.set(i, new ArrayList<>());
+            adjacentList.add(new ArrayList<>());
         }
 
         for (Edge e : edges) {

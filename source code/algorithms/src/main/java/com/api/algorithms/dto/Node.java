@@ -1,10 +1,11 @@
-package com.api.algorithms.utils.models;
+package com.api.algorithms.dto;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
+import java.io.Serializable;
 import java.util.HashMap;
 
-public class Node {
+public class Node implements Serializable {
 
     @JsonProperty(value = "id")
     private String id;
@@ -12,17 +13,12 @@ public class Node {
     @JsonProperty(value = "properties")
     private HashMap<String, String> properties;
 
-    public Node(String id) {
-        this(id, new HashMap<>());
-    }
-
-    public Node(String id, HashMap<String, String> properties) {
-        this.id = id;
-        this.properties = properties;
-    }
-
     public String getId() {
-        return this.id;
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
     }
 
     public HashMap<String, String> getProperties() {

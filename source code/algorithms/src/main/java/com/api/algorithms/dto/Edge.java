@@ -1,13 +1,21 @@
-package com.api.algorithms.utils.models;
+package com.api.algorithms.dto;
 
-public class Edge {
+import com.fasterxml.jackson.annotation.JsonProperty;
 
+import java.io.Serializable;
+
+public class Edge implements Serializable {
+
+    @JsonProperty(value = "source")
     private String source;
 
+    @JsonProperty(value = "target")
     private String target;
 
+    @JsonProperty(value = "directed")
     private boolean directed;
 
+    @JsonProperty(value = "distance")
     private double distance;
 
     public String getSource() {
@@ -40,5 +48,11 @@ public class Edge {
 
     public void setDistance(double distance) {
         this.distance = distance;
+    }
+
+    @Override
+    public String toString() {
+
+        return String.format("%s -> %s  distance:%f isDirected:%b", this.getSource(), this.getTarget(), this.getDistance(), this.isDirected());
     }
 }
